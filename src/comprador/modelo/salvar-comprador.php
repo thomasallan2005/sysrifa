@@ -22,9 +22,10 @@
         if($operacao == 'insert') {
             // Comandos para o INSERT no banco de dados ocorrerem
             try{
-                $stmt = $pdo->prepare('INSERT INTO TIPO (NOME) VALUES (:a)');
+                $stmt = $pdo->prepare('INSERT INTO COMPRADOR (NOME, CELULAR) VALUES (:a, :b)');
                 $stmt->execute(array(
-                    ':a' => utf8_decode($requestData['NOME'])
+                    ':a' => utf8_decode($requestData['NOME']),
+                    ':b' => utf8_decode($requestData['CELULAR'])
                 ));
                 $dados = array(
                     "tipo" => 'success',
